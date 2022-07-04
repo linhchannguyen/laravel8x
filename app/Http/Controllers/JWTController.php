@@ -2,23 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use Validator;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class JWTController extends Controller
 {
-    /**
-     * Create a new AuthController instance.
-     *
-     * @return void
-     */
-    public function __construct() {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
-    }
-
     /**
      * Get a JWT via given credentials.
      *
