@@ -1,0 +1,29 @@
+
+POST http://127.0.0.1:8000/api/profile
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc2ODU3ODc4LCJleHAiOjE2NzY4NjE0NzgsIm5iZiI6MTY3Njg1Nzg3OCwianRpIjoiVWQ5NFhVZk5HRUM4M3A3eSIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.5GDgjngw6spIBs7fqTuV1S_VNS5vpX3AoTipk12zXug
+
+###
+POST http://127.0.0.1:8000/api/refresh
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjc2ODYzNTA2LCJleHAiOjE2NzY4NjcxMDYsIm5iZiI6MTY3Njg2MzUwNiwianRpIjoiNExRamF5YWtnaEZxV3RQRyIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.Yl6cRjTgMmRks7gvtLO3haIdvRwQqttqkwRYPh8rl2I
+
+###
+POST http://127.0.0.1:8000/api/register
+Content-Type: application/json
+
+{
+    "name": "Chan",
+    "email": "channl@ominext.com",
+    "password": "1234567",
+    "password_confirmation": "1234567"
+}
+
+###
+POST http://127.0.0.1:8000/api/login
+Content-Type: application/json
+
+{
+    "email": "channl@ominext.com",
+    "password": "1234567"
+}
