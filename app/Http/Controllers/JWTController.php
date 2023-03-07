@@ -6,8 +6,11 @@ use Auth;
 use Validator;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Tymon\JWTAuth\Facades\JWTFactory;
 
 class JWTController extends Controller
 {
@@ -18,7 +21,7 @@ class JWTController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        // $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
     /**
@@ -93,14 +96,6 @@ class JWTController extends Controller
      */
     public function refresh()
     {
-        $users = User::get();
-
-        $post = $users->load('posts')->toArray();
-        dd($post);
-        foreach($post as $value)
-        {
-            dd($value->posts->toArray());
-        }
         return $this->createNewToken(auth()->refresh());
     }
 
@@ -125,8 +120,6 @@ class JWTController extends Controller
     {
         return response()->json([
             'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
             'user' => auth()->user()
         ]);
     }
