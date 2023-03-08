@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JWTController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use App\Http\Controllers\JWTController;
 
 Route::post('/register', [JWTController::class, 'register'])->name('register');
 Route::post('/login', [JWTController::class, 'login']);
+Route::get('/mail', [MailController::class, 'sendMail']);
 Route::group(['middleware' => 'author'], function () {
     Route::post('/logout', [JWTController::class, 'logout']);
     Route::post('/refresh', [JWTController::class, 'refresh']);

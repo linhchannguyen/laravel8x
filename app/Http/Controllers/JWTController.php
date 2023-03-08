@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-use Validator;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
@@ -96,7 +96,7 @@ class JWTController extends Controller
      */
     public function refresh()
     {
-        return $this->createNewToken(auth()->refresh());
+        return $this->createNewToken(Auth::refresh()); //auth()->refresh()
     }
 
     /**
